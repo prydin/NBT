@@ -73,7 +73,10 @@ public class Chunk {
 		this.structures = level.getCompoundTag("Structures");
 		if (level.containsKey("Sections")) {
 			for (CompoundTag section : level.getListTag("Sections").asCompoundTagList()) {
-				this.sections[section.getByte("Y")] = new Section(section);
+				byte y = section.getByte("Y");
+				if(y >= 0) {
+					this.sections[y] = new Section(section);
+				}
 			}
 		}
 	}
