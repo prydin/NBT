@@ -74,7 +74,7 @@ public class Chunk {
 		if (level.containsKey("Sections")) {
 			for (CompoundTag section : level.getListTag("Sections").asCompoundTagList()) {
 				byte y = section.getByte("Y");
-				if(y >= 0) {
+				if(y >= 0 && section..getListTag("Palette") != null) {
 					this.sections[y] = new Section(section);
 				}
 			}
